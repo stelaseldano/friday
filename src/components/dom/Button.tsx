@@ -4,7 +4,7 @@ import '../../styles/Button.css';
 
 const Button: React.FunctionComponent<{
 	title: string;
-	onClick: any;
+	onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }> = props => {
 	return (
 		<button

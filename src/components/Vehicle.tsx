@@ -5,7 +5,7 @@ import '../styles/Vehicle.css';
 
 const GetData: React.FunctionComponent<{
 	vehicle: VehicleInterface;
-	onClick: any;
+	onClick: (event: React.MouseEvent<HTMLLIElement>) => void;
 }> = props => {
 	return (
 		<li onClick={props.onClick} className="vehicle-card">

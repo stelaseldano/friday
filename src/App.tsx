@@ -11,15 +11,7 @@ import './styles/App.css';
 const App: React.FunctionComponent = () => {
 	const [make, setMake] = React.useState('');
 	const [model, setModel] = React.useState('');
-	const [vehicle, setVehicle] = React.useState<VehicleInterface>({
-		make: null,
-		model: null,
-		enginePowerPS: null,
-		enginePowerPW: null,
-		fuelType: null,
-		bodyType: null,
-		engineCapacity: null
-	});
+	const [vehicle, setVehicle] = React.useState<VehicleInterface>({});
 	const [error, setError] = React.useState<ErrorInterface>({
 		message: ''
 	});
@@ -30,15 +22,7 @@ const App: React.FunctionComponent = () => {
 	}, [make]);
 
 	React.useEffect(() => {
-		setVehicle({
-			make: '',
-			model: '',
-			enginePowerPS: 0,
-			enginePowerPW: 0,
-			fuelType: '',
-			bodyType: '',
-			engineCapacity: 0
-		});
+		setVehicle({});
 	}, [model]);
 
 	const modelUrl =

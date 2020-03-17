@@ -14,7 +14,7 @@ const GetData: React.FunctionComponent<{
 }> = props => {
 	const [data, setData] = React.useState([]);
 	const [fetching, setFetching] = React.useState(false);
-	const { model, make, type } = props;
+	const { model, make } = props;
 
 	React.useEffect(() => {
 		setFetching(true);
