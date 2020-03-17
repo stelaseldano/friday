@@ -5,13 +5,11 @@ import ErrorInterface from '../interfaces/ErrorInterface';
 import '../styles/Error.css';
 
 const Error: React.FunctionComponent<{
-	error: {
-		message: string;
-	};
+	error: ErrorInterface;
 }> = props => {
 	return (
 		<main className="error">
-			<h1>{props.error.message}</h1>
+			<h2 className="error__title">{props.error.message}</h2>
 
 			<Button
 				onClick={() => {

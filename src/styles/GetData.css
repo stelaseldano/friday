@@ -20,4 +20,8 @@
 	.slide__items {
 		padding: 10px;
 	}
+
+	.slide__title {
+		margin: 60px 0 0 0;
+	}
 }

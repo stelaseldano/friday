@@ -20,13 +20,13 @@ const Header: React.FunctionComponent<{
 		<header className={headerClass}>
 			<h2 className="slide__header__title">Your vehicle</h2>
 			<div className="slide__info-container">
-				{props.make !== '' && props.vehicle.hasOwnProperty('make') && (
+				{props.make !== '' && (
 					<p className="slide__info">
 						<span>Make: </span>
 						<strong>{props.make}</strong>
 					</p>
 				)}
-				{props.model !== '' && props.vehicle.hasOwnProperty('model') && (
+				{props.model !== '' && (
 					<p className="slide__info">
 						<span>Model: </span>
 						<strong>{props.model}</strong>

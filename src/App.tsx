@@ -11,6 +11,7 @@ import './styles/App.css';
 const App: React.FunctionComponent = () => {
 	const [make, setMake] = React.useState('');
 	const [model, setModel] = React.useState('');
+	const [cached, setCached] = React.useState<any>({});
 	const [vehicle, setVehicle] = React.useState<VehicleInterface>({});
 	const [error, setError] = React.useState<ErrorInterface>({
 		message: ''
@@ -33,12 +34,60 @@ const App: React.FunctionComponent = () => {
 			? 'http://localhost:8080/api/vehicles?make=' + make + '&model=' + model
 			: '';
 
+	function onSetCached(data: string[], type: string) {
+		switch (type) {
+			case 'makes':
+				let makes: any = {};
+
+				data.forEach((item: string) => {
+					makes[item] = {};
+				});
+
+				setCached({
+					...cached,
+					...makes
+				});
+				return;
+			case 'models':
+				let models: any = {};
+				let makeObj: any = {};
+
+				data.forEach((item: string) => {
+					models[item] = [];
+					makeObj[make] = models;
+				});
+
+				setCached({
+					...cached,
+					...makeObj
+				});
+
+				return;
+			case 'vehicles':
+				let vehicleObj: any = Object.assign({}, cached);
+
+				data.forEach((item: {}) => {
+					vehicleObj[make][model].push(item);
+				});
+
+				setCached({
+					...cached,
+					...vehicleObj
+				});
+
+				return;
+		}
+
+		console.log(cached);
+	}
+
 	function showSlide() {
 		// shows the makes
 		if (slide === 0) {
 			return (
 				<GetData
 					type={'makes'}
+					cached={Object.keys(cached)}
 					endpoint={'http://localhost:8080/api/makes'}
 					onSelected={(item: string) => {
 						setMake(item);
@@ -47,22 +96,28 @@ const App: React.FunctionComponent = () => {
 					onError={(error: any) => {
 						setError(error);
 					}}
+					onSetCached={(data: string[]) => {
+						onSetCached(data, 'makes');
+					}}
 				/>
 			);
-			// shows the modesl
+			// shows the models
 		} else if (slide === 1) {
 			return (
 				<GetData
 					type={'models'}
+					cached={Object.keys(cached[make])}
 					make={make}
 					endpoint={modelUrl}
 					onSelected={(item: string) => {
 						setModel(item);
 						setSlide(2);
 					}}
-					onError={(error: any) => {
-						console.log(typeof error);
+					onError={(error: ErrorInterface) => {
 						setError(error);
+					}}
+					onSetCached={(data: string[]) => {
+						onSetCached(data, 'models');
 					}}
 				/>
 			);
@@ -71,12 +126,16 @@ const App: React.FunctionComponent = () => {
 			return (
 				<GetData
 					type={'vehicles'}
+					cached={cached[make][model]}
 					make={make}
 					model={model}
 					endpoint={vehicleUrl}
 					onSelected={(item: any) => setVehicle(item)}
 					onError={(error: any) => {
 						setError(error);
+					}}
+					onSetCached={(data: string[]) => {
+						onSetCached(data, 'vehicles');
 					}}
 				/>
 			);
