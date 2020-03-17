@@ -1,11 +1,12 @@
 import React from 'react';
 import Vehicle from './Vehicle';
+import VehicleInterface from '../interfaces/VehicleInterface';
 
 import '../styles/Item.css';
 
 const Item: React.FunctionComponent<{
 	type: string;
-	item: string | any;
+	item: string | VehicleInterface;
 	onClick: any;
 }> = props => {
 	if (typeof props.item === 'string') {

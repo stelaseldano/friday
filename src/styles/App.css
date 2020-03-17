@@ -12,7 +12,7 @@ body {
 
 .slide {
 	width: 100%;
-	padding: 0 20px;
+	padding: 0 20px 40px 0;
 	box-sizing: border-box;
 }
 
@@ -31,6 +31,10 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+	.slide {
+		padding: 0 20px 200px 0;
+	}
+
 	.slide__main button {
 		position: fixed;
 		left: 30px;

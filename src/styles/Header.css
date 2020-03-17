@@ -17,6 +17,19 @@
 	right: 0;
 }
 
+.slide__header__title {
+	color: #6734ba;
+	margin: 20px 0;
+}
+
+.slide__info {
+	margin: 10px 0;
+}
+
+.slide__info span {
+	color: #6734ba;
+}
+
 @media screen and (max-width: 1024px) {
 	.slide__header {
 		height: auto;
@@ -33,23 +46,10 @@
 	}
 
 	.slide__header__title {
-		font-size: 20px;
+		font-size: 22px;
 	}
 
 	.slide__info {
 		margin: 3px 0;
 	}
-}
-
-.slide__header__title {
-	color: #6734ba;
-	margin: 10px 0;
-}
-
-.slide__info {
-	margin: 10px 0;
-}
-
-.slide__info span {
-	color: #6734ba;
 }

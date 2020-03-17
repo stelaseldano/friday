@@ -3,14 +3,26 @@ import GetData from './components/GetData';
 import Button from './components/dom/Button';
 import Header from './components/Header';
 import Error from './components/Error';
+import VehicleInterface from './interfaces/VehicleInterface';
+import ErrorInterface from './interfaces/ErrorInterface';
 
 import './styles/App.css';
 
 const App: React.FunctionComponent = () => {
 	const [make, setMake] = React.useState('');
 	const [model, setModel] = React.useState('');
-	const [vehicle, setVehicle] = React.useState({});
-	const [error, setError] = React.useState('');
+	const [vehicle, setVehicle] = React.useState<VehicleInterface>({
+		make: null,
+		model: null,
+		enginePowerPS: null,
+		enginePowerPW: null,
+		fuelType: null,
+		bodyType: null,
+		engineCapacity: null
+	});
+	const [error, setError] = React.useState<ErrorInterface>({
+		message: ''
+	});
 	const [slide, setSlide] = React.useState(0);
 
 	React.useEffect(() => {
@@ -18,7 +30,15 @@ const App: React.FunctionComponent = () => {
 	}, [make]);
 
 	React.useEffect(() => {
-		setVehicle({});
+		setVehicle({
+			make: '',
+			model: '',
+			enginePowerPS: 0,
+			enginePowerPW: 0,
+			fuelType: '',
+			bodyType: '',
+			engineCapacity: 0
+		});
 	}, [model]);
 
 	const modelUrl =
@@ -81,7 +101,7 @@ const App: React.FunctionComponent = () => {
 
 	return (
 		<div className="view">
-			{error === '' ? (
+			{error.message === '' ? (
 				<article className="slide">
 					<Header make={make} model={model} vehicle={vehicle} />
 

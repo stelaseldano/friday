@@ -5,12 +5,6 @@
 	list-style: none;
 }
 
-@media screen and (max-width: 1024px) {
-	.slide__items {
-		padding: 10px;
-	}
-}
-
 .slide__title {
 	text-align: center;
 	color: #6734ba;
@@ -20,4 +14,10 @@
 .slide-container {
 	padding: 20px;
 	box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+	.slide__items {
+		padding: 10px;
+	}
 }
