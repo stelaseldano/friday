@@ -1,9 +1,12 @@
 import React from 'react';
+import Item from './Item';
 import { fetchData } from '../fetch';
 
+import '../styles/GetData.css';
+
 const GetData: React.FunctionComponent<{
-	onSelected: any;
-	onError: any;
+	onSelected: Function;
+	onError: Function;
 	endpoint: string;
 	type: string;
 	make?: string;
@@ -11,6 +14,7 @@ const GetData: React.FunctionComponent<{
 }> = props => {
 	const [data, setData] = React.useState([]);
 	const [fetching, setFetching] = React.useState(false);
+	const { model, make, type } = props;
 
 	React.useEffect(() => {
 		setFetching(true);
@@ -23,7 +27,7 @@ const GetData: React.FunctionComponent<{
 				setFetching(false);
 				props.onError(err);
 			});
-	}, [props.make]);
+	}, [make, model]);
 
 	function isFetching() {
 		return <div>loading</div>;
@@ -31,21 +35,21 @@ const GetData: React.FunctionComponent<{
 
 	function isFetched() {
 		return (
-			<ul>
+			<ul className="slide__items">
 				{data.length > 0 ? (
 					data.map((item: string, index: number) => (
-						<li
+						<Item
+							key={index}
 							onClick={(event: React.MouseEvent<HTMLElement>) => {
 								props.onSelected(item);
 							}}
-							key={index}
-						>
-							{item}
-						</li>
+							item={item}
+							type={props.type}
+						/>
 					))
 				) : (
 					<div>
-						no items for {props.make} {props.model}
+						no {props.type} for {props.make} {props.model}
 					</div>
 				)}
 			</ul>
@@ -54,7 +58,7 @@ const GetData: React.FunctionComponent<{
 
 	return (
 		<section>
-			<h2>{props.type}</h2>
+			<h2 className="slide__title">{props.type}</h2>
 			{fetching ? isFetching() : isFetched()}
 		</section>
 	);

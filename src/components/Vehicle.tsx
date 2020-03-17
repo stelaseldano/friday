@@ -1,19 +1,52 @@
 import React from 'react';
 import VehicleInterface from '../interfaces/VehicleInterface';
 
+import '../styles/Vehicle.css';
+
 const GetData: React.FunctionComponent<{
 	vehicle: VehicleInterface;
 	onClick: any;
 }> = props => {
 	return (
-		<li onClick={props.onClick}>
-			<h3>{props.vehicle.make}</h3>
-			<h4>{props.vehicle.model}</h4>
-			<p>{props.vehicle.enginePowerPS}</p>
-			<p>{props.vehicle.enginePowerPW}</p>
-			<p>{props.vehicle.fuelType}</p>
-			<p>{props.vehicle.bodyType}</p>
-			<p>{props.vehicle.engineCapacity}</p>
+		<li onClick={props.onClick} className="vehicle-card">
+			<article>
+				<header className="vehicle__header">
+					<h2 className="vehicle__header__item">{props.vehicle.make}</h2>
+					<h3 className="vehicle__header__item">{props.vehicle.model}</h3>
+				</header>
+				<section className="vehicle__info">
+					{props.vehicle.enginePowerPS && (
+						<p className="vehicle__info__item">
+							<span>Engine Power PS: </span>
+							{props.vehicle.enginePowerPS}
+						</p>
+					)}
+					{props.vehicle.enginePowerPW && (
+						<p className="vehicle__info__item">
+							<span>Engine Power PW: </span>
+							{props.vehicle.enginePowerPW}
+						</p>
+					)}
+					{props.vehicle.fuelType && (
+						<p className="vehicle__info__item">
+							<span>Fuel Type: </span>
+							{props.vehicle.fuelType}
+						</p>
+					)}
+					{props.vehicle.bodyType && (
+						<p className="vehicle__info__item">
+							<span>Body Type: </span>
+							{props.vehicle.bodyType}
+						</p>
+					)}
+					{props.vehicle.engineCapacity && (
+						<p className="vehicle__info__item">
+							<span>Engine Capacity: </span>
+							{props.vehicle.engineCapacity}
+						</p>
+					)}
+				</section>
+			</article>
 		</li>
 	);
 };

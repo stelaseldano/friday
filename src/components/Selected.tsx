@@ -6,13 +6,36 @@ const Selected: React.FunctionComponent<{
 }> = props => {
 	return (
 		<section>
-			<div>{props.vehicle.make}</div>
-			<div>{props.vehicle.model}</div>
-			<div>{props.vehicle.enginePowerPS}</div>
-			<div>{props.vehicle.enginePowerPW}</div>
-			<div>{props.vehicle.fuelType}</div>
-			<div>{props.vehicle.bodyType}</div>
-			<div>{props.vehicle.engineCapacity}</div>
+			<ul>
+				<li>
+					<span>Make: </span>
+					{props.vehicle.make}
+				</li>
+				<li>
+					<span>Model: </span>
+					{props.vehicle.model}
+				</li>
+				<li>
+					<span>Engine Power PS: </span>
+					{props.vehicle.enginePowerPS}
+				</li>
+				<li>
+					<span>Engine Power PW: </span>
+					{props.vehicle.enginePowerPW}
+				</li>
+				<li>
+					<span>Fuel Type: </span>
+					{props.vehicle.fuelType}
+				</li>
+				<li>
+					<span>Body Type: </span>
+					{props.vehicle.bodyType}
+				</li>
+				<li>
+					<span>Engine Capacity: </span>
+					{props.vehicle.engineCapacity}
+				</li>
+			</ul>
 		</section>
 	);
 };

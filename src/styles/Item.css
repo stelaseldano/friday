@@ -1,0 +1,15 @@
+.item {
+	background-color: white;
+	border-radius: 10px;
+	margin: 20px auto;
+	padding: 20px;
+	transition: all 0.125s cubic-bezier(0.77, 0, 0.175, 1);
+	text-align: center;
+	max-width: 300px;
+}
+
+.item:hover {
+	font-weight: bold;
+	transform: scale(1.125);
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}

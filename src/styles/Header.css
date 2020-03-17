@@ -1,0 +1,24 @@
+.slide__header {
+	background-color: white;
+	box-sizing: border-box;
+	padding: 20px 40px;
+	width: 100%;
+	box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.3);
+	z-index: 2;
+
+	position: fixed;
+	bottom: -400px;
+	transition: bottom 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.slide__header--showing {
+	bottom: 0;
+}
+
+.slide__header__title {
+	color: #6734ba;
+}
+
+.slide__header__info span {
+	color: #6734ba;
+}

@@ -1,0 +1,22 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #ffe24f;
+}
+
+.view {
+	/* padding: 50px; */
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.slide {
+	/* margin: 0 auto; */
+	width: 100%;
+}
+
+.slide__main {
+	max-width: 960px;
+	margin: 60px auto 300px auto;
+}
