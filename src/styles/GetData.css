@@ -1,12 +1,23 @@
 .slide__items {
-	padding: 30px 60px;
+	padding: 0;
 	box-sizing: border-box;
 	box-sizing: border-box;
 	list-style: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.slide__items {
+		padding: 10px;
+	}
 }
 
 .slide__title {
 	text-align: center;
 	color: #6734ba;
 	text-transform: capitalize;
+}
+
+.slide-container {
+	padding: 20px;
+	box-sizing: border-box;
 }

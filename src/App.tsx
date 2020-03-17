@@ -1,6 +1,5 @@
 import React from 'react';
 import GetData from './components/GetData';
-import Selected from './components/Selected';
 import Button from './components/dom/Button';
 import Header from './components/Header';
 import Error from './components/Error';
@@ -41,7 +40,9 @@ const App: React.FunctionComponent = () => {
 						setMake(item);
 						setSlide(1);
 					}}
-					onError={(error: any) => setError(error)}
+					onError={(error: any) => {
+						setError(error);
+					}}
 				/>
 			);
 			// shows the modesl
@@ -55,7 +56,10 @@ const App: React.FunctionComponent = () => {
 						setModel(item);
 						setSlide(2);
 					}}
-					onError={(error: any) => setError(error)}
+					onError={(error: any) => {
+						console.log(typeof error);
+						setError(error);
+					}}
 				/>
 			);
 			// shows the vehicles
@@ -67,14 +71,16 @@ const App: React.FunctionComponent = () => {
 					model={model}
 					endpoint={vehicleUrl}
 					onSelected={(item: any) => setVehicle(item)}
-					onError={(error: any) => setError(error)}
+					onError={(error: any) => {
+						setError(error);
+					}}
 				/>
 			);
 		}
 	}
 
 	return (
-		<div>
+		<div className="view">
 			{error === '' ? (
 				<article className="slide">
 					<Header make={make} model={model} vehicle={vehicle} />

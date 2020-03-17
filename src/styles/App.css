@@ -3,20 +3,37 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: #ffe24f;
+	font-family: 'Lato', sans-serif;
 }
 
 .view {
-	/* padding: 50px; */
-	box-sizing: border-box;
 	width: 100%;
 }
 
 .slide {
-	/* margin: 0 auto; */
 	width: 100%;
+	padding: 0 20px;
+	box-sizing: border-box;
 }
 
 .slide__main {
-	max-width: 960px;
-	margin: 60px auto 300px auto;
+	max-width: 640px;
+	display: flex;
+	margin: 0 auto;
+	flex-direction: column;
+}
+
+.slide__main button {
+	position: fixed;
+	left: 30px;
+	top: 30px;
+	z-index: 2;
+}
+
+@media screen and (max-width: 1024px) {
+	.slide__main button {
+		position: fixed;
+		left: 30px;
+		top: 30px;
+	}
 }

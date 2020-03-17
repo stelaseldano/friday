@@ -30,34 +30,36 @@ const GetData: React.FunctionComponent<{
 	}, [make, model]);
 
 	function isFetching() {
-		return <div>loading</div>;
+		return <div className="slide-container">loading</div>;
 	}
 
 	function isFetched() {
 		return (
-			<ul className="slide__items">
-				{data.length > 0 ? (
-					data.map((item: string, index: number) => (
-						<Item
-							key={index}
-							onClick={(event: React.MouseEvent<HTMLElement>) => {
-								props.onSelected(item);
-							}}
-							item={item}
-							type={props.type}
-						/>
-					))
-				) : (
-					<div>
-						no {props.type} for {props.make} {props.model}
-					</div>
-				)}
-			</ul>
+			<section className="slide-container">
+				<ul className="slide__items">
+					{data.length > 0 ? (
+						data.map((item: string, index: number) => (
+							<Item
+								key={index}
+								onClick={() => {
+									props.onSelected(item);
+								}}
+								item={item}
+								type={props.type}
+							/>
+						))
+					) : (
+						<div className="slide__items">
+							no {props.type} for {props.make} {props.model}
+						</div>
+					)}
+				</ul>
+			</section>
 		);
 	}
 
 	return (
-		<section>
+		<section className="slide-container">
 			<h2 className="slide__title">{props.type}</h2>
 			{fetching ? isFetching() : isFetched()}
 		</section>

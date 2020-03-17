@@ -4,11 +4,12 @@ import Button from './dom/Button';
 import '../styles/Error.css';
 
 const Error: React.FunctionComponent<{
-	error: string;
+	error: any;
 }> = props => {
 	return (
-		<div>
-			<h1>error</h1>
+		<main className="error">
+			<h1>{props.error.message}</h1>
+
 			<Button
 				onClick={() => {
 					window.location.reload();
@@ -16,7 +17,7 @@ const Error: React.FunctionComponent<{
 				}}
 				title={'reload'}
 			/>
-		</div>
+		</main>
 	);
 };
 

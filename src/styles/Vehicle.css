@@ -22,7 +22,7 @@
 	border-top-right-radius: 20px;
 }
 
-.vehicle__header__item {
+.vehicle__header-item {
 	font-size: 20px;
 	font-weight: bold;
 	margin: 10px 10px 10px 0;
@@ -36,13 +36,13 @@
 	transition: all 0.125s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.vehicle__info__item {
+.vehicle__info-item {
 	margin: 5px 0;
 	color: black;
 	font-weight: bold;
 }
 
-.vehicle__info__item span {
+.vehicle__info-item span {
 	color: #6734ba;
 	font-weight: normal;
 	margin: 0 8px 0 0;

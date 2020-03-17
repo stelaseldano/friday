@@ -4,7 +4,7 @@ export const fetchData = endpoint => {
 			if (response.status === 200) {
 				return response.json();
 			} else {
-				throw new Error('Oops something went wrong');
+				throw new Error(response.statusText);
 			}
 		})
 		.catch(err => {
