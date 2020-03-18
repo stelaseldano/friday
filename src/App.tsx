@@ -9,8 +9,8 @@ import ErrorInterface from './interfaces/ErrorInterface';
 import './styles/App.css';
 
 const App: React.FunctionComponent = () => {
-	const [make, setMake] = React.useState('');
-	const [model, setModel] = React.useState('');
+	const [make, setMake] = React.useState<string>('');
+	const [model, setModel] = React.useState<string>('');
 	const [cached, setCached] = React.useState<any>({});
 	const [vehicle, setVehicle] = React.useState<VehicleInterface>({});
 	const [error, setError] = React.useState<ErrorInterface>({
