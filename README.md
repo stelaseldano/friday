@@ -2,14 +2,18 @@
 
 ## Running the app
 
-### `npm install` or `yarn install` to install the dependencies
+###  Install the dependencies
 
-### `yarn start` to run the app
+Run `npm install` or `yarn install`
 
-Runs the app in the development mode.<br />
+### Run the app
+
+Run `yarn start`
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn build`
+### Build the app
+
+Run `yarn build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
